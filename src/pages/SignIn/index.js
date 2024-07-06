@@ -80,6 +80,8 @@ const SignIn = () => {
       errors.password = !validatePassword(value) ? "Password is required" : "";
     }
 
+    
+
     setInputErrors(errors);
     setFormFields((prevFormFields) => ({
       ...prevFormFields,
