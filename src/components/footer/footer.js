@@ -35,7 +35,7 @@ const Footer = () => {
                 Stay home & get your daily <br />
                 needs from our shop
               </h2>
-              <p>Start You'r Daily Shopping with Nest Mart</p>
+              <p>Start Your Daily Shopping with Nest Mart</p>
               <br />
               <br className="res-hide" />
               <Newsletter />
@@ -124,12 +124,11 @@ const Footer = () => {
                 </Link>
                 <br />
                 <br />
-                <p>Awesome grocery store website template</p>
+                <br />
                 <br />
 
                 <p>
-                  <LocationOnOutlinedIcon /> <strong>Address</strong>: 5171 W
-                  Campbell Ave undefined Kent, Utah 53127 United States
+                  <LocationOnOutlinedIcon /> <strong>Address</strong>: Kopidanga Chinsurah Hooghly West Bengal, India.
                 </p>
                 <p>
                   <HeadphonesOutlinedIcon /> <strong>Call Us:</strong> (+91) -
@@ -140,7 +139,7 @@ const Footer = () => {
                 </p>
                 <p>
                   <WatchLaterOutlinedIcon /> <strong>Hours:</strong> 10:00 -
-                  18:00, Mon - Sat
+                  18:00  Mon - Sat
                 </p>
               </div>
 
@@ -159,7 +158,7 @@ const Footer = () => {
                         <Link to="#">Privacy Policy</Link>
                       </li>
                       <li>
-                        <Link to="#">Terms &amp; Conditions</Link>
+                        <Link to={'/Terms'}>Terms &amp; Conditions</Link>
                       </li>
                       <li>
                         <Link to="#">Contact Us</Link>
@@ -186,7 +185,7 @@ const Footer = () => {
                         <Link to="#">Privacy Policy</Link>
                       </li>
                       <li>
-                        <Link to="#">Terms &amp; Conditions</Link>
+                        <Link to="/Terms">Terms &amp; Conditions</Link>
                       </li>
                       <li>
                         <Link to="#">Contact Us</Link>
@@ -213,7 +212,7 @@ const Footer = () => {
                         <Link to="#">Privacy Policy</Link>
                       </li>
                       <li>
-                        <Link to="#">Terms &amp; Conditions</Link>
+                        <Link to={'/Terms'}>Terms &amp; Conditions</Link>
                       </li>
                       <li>
                         <Link to="#">Contact Us</Link>
@@ -240,7 +239,7 @@ const Footer = () => {
                         <Link to="#">Privacy Policy</Link>
                       </li>
                       <li>
-                        <Link to="#">Terms &amp; Conditions</Link>
+                        <Link to={'/Terms'}>Terms &amp; Conditions</Link>
                       </li>
                       <li>
                         <Link to="#">Contact Us</Link>

@@ -4,14 +4,14 @@ import './index.css';
 
 import Slide1 from '../../../assets/images/slider-1.png';
 import Slide2 from '../../../assets/images/slider-2.png';
-// import Button from '@mui/material/Button';
 
 import Newsletter from '../../../components/newsletter';
-
 import { MyContext } from '../../../App';
+import Button from '@mui/material/Button';
+
+
 
 const HomeSlider = () => {
-
     const context = useContext(MyContext);
 
     var settings = {
@@ -21,46 +21,40 @@ const HomeSlider = () => {
         slidesToShow: 1,
         slidesToScroll: 1,
         fade: true,
-        arrows: context.windowWidth>992 ? true : false,
-        autoplay:true
+        arrows: context.windowWidth > 992 ? true : false,
+        autoplay: true
     };
-
-
 
     return (
         <section className='homeSlider'>
             <div className='container-fluid position-relative'>
                 <Slider {...settings} className='home_slider_Main'>
                     <div className="item">
-                        <img src={Slide1} className='w-100' />
+                        <img src={Slide1} style={{height:"100vh",width:"146vw"}} />
                         <div className='info'>
                             <h2 className="mb-4">
                                 Don’t miss amazing<br />
                                 grocery deals
                             </h2>
                             <p>Sign up for the daily newsletter</p>
+                            <Newsletter /> 
                         </div>
                     </div>
                     <div className="item">
-                        <img src={Slide2} className='w-100' />
+                        <img src={Slide2} style={{height:"100vh",width:"146vw"}} />
                         <div className='info'>
                             <h2 className="mb-3">
                                 Fresh Vegetables<br />
                                 Big discount
                             </h2>
                             <p>Sign up for the daily newsletter</p>
+                            <Newsletter /> 
                         </div>
                     </div>
                 </Slider>
-
-                {
-                    context.windowWidth>992 && <Newsletter/>
-                }
-                
-
             </div>
         </section>
-    )
+    );
 }
 
 export default HomeSlider;
