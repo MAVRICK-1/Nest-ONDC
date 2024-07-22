@@ -1,12 +1,12 @@
-import React, { useEffect, useState, useContext } from "react";
-import "./style.css";
-import Rating from "@mui/material/Rating";
-import { Button } from "@mui/material";
-import { Link } from "react-router-dom";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
-import CompareArrowsOutlinedIcon from "@mui/icons-material/CompareArrowsOutlined";
-import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
+import React, { useEffect, useState, useContext } from 'react';
+import './style.css';
+import Rating from '@mui/material/Rating';
+import { Button } from '@mui/material';
+import { Link } from 'react-router-dom';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import CompareArrowsOutlinedIcon from '@mui/icons-material/CompareArrowsOutlined';
+import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 // import {
 //   getDatabase,
 //   ref,
@@ -17,9 +17,9 @@ import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
 //   remove,
 // } from "firebase/database";
 
-import { MyContext } from "../../App";
-import { db } from "../../firebase";
-import { doc, setDoc } from "firebase/firestore";
+import { MyContext } from '../../App';
+import { db } from '../../firebase';
+import { doc, setDoc } from 'firebase/firestore';
 
 const Product = (props) => {
   const [productData, setProductData] = useState();
@@ -34,8 +34,8 @@ const Product = (props) => {
   }, [props.item]);
 
   const setProductCat = () => {
-    sessionStorage.setItem("parentCat", productData.parentCatName);
-    sessionStorage.setItem("subCatName", productData.subCatName);
+    sessionStorage.setItem('parentCat', productData.parentCatName);
+    sessionStorage.setItem('subCatName', productData.subCatName);
   };
   ////console.log(productData); //printing1000 data
 
@@ -46,7 +46,7 @@ const Product = (props) => {
         setUserLocation([position.coords.latitude, position.coords.longitude]);
       },
       (error) => {
-        console.error("Error getting user location:", error);
+        console.error('Error getting user location:', error);
       }
     );
   }, [context.isLogin]);
@@ -100,33 +100,43 @@ const Product = (props) => {
 
   const addToCart = async (item) => {
     try {
-      const user = localStorage.getItem("uid");
-      const cartRef = doc(db, "carts", user);
-      const productRef = doc(cartRef, "products", `${item.id}`);
+      const user = localStorage.getItem('uid');
+      const cartRef = doc(db, 'carts', user);
+      const productRef = doc(cartRef, 'products', `${item.id}`);
       await setDoc(productRef, { ...item, quantity: 1 });
       setIsadded(true);
       context.fetchCartProducts();
     } catch (error) {
-      console.error("Error adding item to cart:", error);
+      console.error('Error adding item to cart:', error);
     }
   };
 
   const addToWishlist = async (item) => {
-    console.log("addToWishlist");
+    console.log('addToWishlist');
     try {
-      const user = localStorage.getItem("uid");
-      const wishlistRef = doc(db, "wishlists", user);
-      const productRef = doc(wishlistRef, "products", `${item.id}`);
+      const user = localStorage.getItem('uid');
+      const wishlistRef = doc(db, 'wishlists', user);
+      const productRef = doc(wishlistRef, 'products', `${item.id}`);
       await setDoc(productRef, { ...item, quantity: 1 });
       setIsadded(true);
       context.fetchWishlistProducts();
     } catch (error) {
-      console.error("Error adding item to wishlist:", error);
+      console.error('Error adding item to wishlist:', error);
     }
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div class="skeleton-container">
+        <div class="skeleton-image"></div>
+        <div class="skeleton-details">
+          <div class="skeleton-line skeleton-line-long"></div>
+          <div class="skeleton-line skeleton-line-long"></div>
+          <div class="skeleton-line skeleton-line-short"></div>
+          <div class="skeleton-line skeleton-line-medium"></div>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -141,7 +151,7 @@ const Product = (props) => {
             <div className="imgWrapper">
               <div className="p-4 wrapper mb-3">
                 <img
-                  src={productData.catImg + "?im=Resize=(420,420)"}
+                  src={productData.catImg + '?im=Resize=(420,420)'}
                   className="w-100"
                 />
               </div>
@@ -175,7 +185,7 @@ const Product = (props) => {
             <span className="d-block catName">{productData.brand}</span>
             <h4 className="title">
               {/* <Link>{productData.productName.substr(0, 50) + "..."}</Link> */}
-              <Link>{productData.productName.substr(0, 30) + "..."}</Link>
+              <Link>{productData.productName.substr(0, 30) + '...'}</Link>
             </h4>
             <Rating
               name="half-rating-read"
@@ -193,7 +203,7 @@ const Product = (props) => {
               <div className="d-flex align-items-center w-100">
                 <span className="price text-g font-weight-bold">
                   ₹ {productData.price}
-                </span>{" "}
+                </span>{' '}
                 <span className="oldPrice ml-auto">
                   ₹ {productData.oldPrice}
                 </span>
@@ -205,7 +215,7 @@ const Product = (props) => {
               onClick={() => addToCart(productData)}
             >
               <ShoppingCartOutlinedIcon />
-              {isAdded === true ? "Added" : "Add"}
+              {isAdded === true ? 'Added' : 'Add'}
             </Button>
           </div>
         </>
