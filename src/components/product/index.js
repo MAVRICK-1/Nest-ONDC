@@ -112,7 +112,6 @@ const Product = (props) => {
   };
 
   const addToWishlist = async (item) => {
-    console.log('addToWishlist');
     try {
       const user = localStorage.getItem('uid');
       const wishlistRef = doc(db, 'wishlists', user);
