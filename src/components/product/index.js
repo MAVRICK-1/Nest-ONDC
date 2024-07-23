@@ -7,6 +7,7 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import CompareArrowsOutlinedIcon from '@mui/icons-material/CompareArrowsOutlined';
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
+import SkeletonLoading from '../SkeletonLoading';
 // import {
 //   getDatabase,
 //   ref,
@@ -125,17 +126,7 @@ const Product = (props) => {
   };
 
   if (loading) {
-    return (
-      <div class="skeleton-container">
-        <div class="skeleton-image"></div>
-        <div class="skeleton-details">
-          <div class="skeleton-line skeleton-line-long"></div>
-          <div class="skeleton-line skeleton-line-long"></div>
-          <div class="skeleton-line skeleton-line-short"></div>
-          <div class="skeleton-line skeleton-line-medium"></div>
-        </div>
-      </div>
-    );
+    return <SkeletonLoading />;
   }
 
   return (
